@@ -72,7 +72,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.pcss','@/assets/css/custom.pcss'],
+  css: ['@/assets/css/main.pcss','@/assets/css/_custom.pcss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -128,7 +128,7 @@ export default {
     whitelistPatternsChildren: [/^nuxt-content/, /code/, /pre/, /token/, /^vue-content-placeholders/]
   },
   colorMode: {
-    preference: 'system', // default value of $colorMode.preference
+    preference: 'light', // default value of $colorMode.preference
     fallback: COLOR_MODE_FALLBACK, // fallback value if not system preference found
     componentName: 'ColorScheme',
     cookie: {

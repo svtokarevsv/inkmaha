@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     changeColorMode() {
-      if (this.$colorMode.unknown) return (this.$colorMode.preference = COLOR_MODE_FALLBACK)
+      if (true) return (this.$colorMode.preference = 'light')
 
       switch (this.$colorMode.preference) {
         case 'light':

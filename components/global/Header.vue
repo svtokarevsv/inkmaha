@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed z-40 top-0 h-32 pt-12 flex w-full max-w-inherit items-center bg-gray-50" aria-label="Main Menu">
     <div id='logo-wrapper' class='lg:w-40 mr-3'>
-      <img src="/img/mt_logo.png" class='flex-none h-8 mb-2' alt="Sviatoslav Tokariev's logo">
+      <img src="/img/mt_logo.png" class='flex-none h-8 mb-2' alt="Sviatoslav Tokariev's logo" style='border: none;'>
     </div>
     <ul class="flex items-center">
       <li class="flex-1 pl-1">
