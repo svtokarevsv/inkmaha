@@ -8,7 +8,12 @@ import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
 export default {
   target: 'static',
-  components: true,
+  components: {
+    dirs: [
+      '~/components',
+      '~/components/global'
+    ]
+  },
   generate: {
     fallback: true
   },
@@ -43,11 +48,11 @@ export default {
       {
         rel: 'preload',
         as: 'style',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap'
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap',
         media: 'print',
         onload: `this.media='all'`
       }
@@ -55,7 +60,7 @@ export default {
     noscript: [
       {
         innerHTML:
-          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">'
+          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap">'
       }
     ],
     __dangerouslyDisableSanitizers: ['noscript']
@@ -67,7 +72,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.pcss'],
+  css: ['@/assets/css/main.pcss','@/assets/css/custom.pcss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -134,8 +139,8 @@ export default {
   },
   pwa: {
     icon: {
-      source: 'static/icon.png',
-      filename: 'icon.png'
+      source: 'static/img/mt_logo.png',
+      filename: 'mt_logo.png'
     },
     manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
     meta: {

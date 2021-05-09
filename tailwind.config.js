@@ -9,9 +9,21 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     darkSelector: '.dark-mode',
+    container: {
+      center: true,
+      padding: '1rem',
+    },
+    screens: {
+      'xs': '480px', // Added xs
+      sm: '640px',
+      md: '768px',
+      lg: '1170px',
+      xl: '1280px',
+      '2xl': '1536px'
+    },
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         gray: {
@@ -38,13 +50,12 @@ module.exports = {
           '900': 'var(--color-primary-900)', // #0D131E
         },
       },
-      screens: {
-        'xs': '480px', // Added xs
-        // 'sm': '640px',
-        // 'md': '768px',
-        // 'lg': '1024px',
-        // 'xl': '1280px',
-      },
+      spacing: {
+       
+      }, 
+      gap: {
+        '9': '2.25rem',
+      }
     },
   },
   variants: {

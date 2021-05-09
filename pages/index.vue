@@ -1,13 +1,174 @@
 <template>
   <main>
-    <section class="self-center flex flex-col flex-1 items-center justify-center">
-      <h1 class="title text-center">Nuxt — Tailwind — Netlify CMS</h1>
-      <h2 class="subtitle text-center">Boilerplate</h2>
+    <section class='h-120 bg-cover flex flex-col justify-end'
+             v-bind:style="{ 'background-image': `url(${this.realPreviewImageUrl}` }">
+      <button
+        class='button self-center mb-8 border-gray-50 text-gray-50 hover:border-white hover:text-white'>
+        Preview Showreel
+      </button>
     </section>
-
-    <section class="mt-8">
-      <h3 class="text-primary-600 dark:text-primary-400 max-w-5xl mx-auto">Latest blog post</h3>
-      <posts post-type="blog" :amount="1" />
-    </section>
+    <ProjectGroup v-for='(group, index) in projectGroups' :key='index' :name='group.name' :items='group.items'/>
+    <ContactMe/>
   </main>
 </template>
+<script>
+import ProjectGroup from '~/components/ProjectGroup'
+import ContactMe from '~/pages/ContactMe'
+
+export default {
+  components: { ContactMe, ProjectGroup },
+  data:()=>({
+    realPreviewImageUrl:'/img/sample_landscape_image.jpeg',
+    projectGroups:[
+      {
+        name: 'Animation',
+        items: [
+          {
+            url: '/img/sample_landscape_image.jpeg',
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+        ],
+      },
+      {
+        name: 'Branding',
+        items: [
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg',
+            width: 2,
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+        ],
+      },
+      {
+        name: 'UI / UX',
+        items: [
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg',
+            width: 3,
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg',
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+        ],
+      },
+      {
+        name: 'SMM / Instagram',
+        items: [
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg',
+            width: 2,
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+        ],
+      },
+      {
+        name: 'Illustrations',
+        items: [
+          {
+            url: '/img/sample_landscape_image.jpeg',
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+          {
+            url: '/img/sample_landscape_image.jpeg'
+          },
+        ],
+      }
+    ],
+  })
+}
+</script>
