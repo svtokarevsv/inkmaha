@@ -30,23 +30,22 @@
       </div>
     </div>
     <div class='flex flex-col items-center mt-24'> 
-      <p>I'd love to hear from your. Let's collaborate</p>
+      <p class='mb-5 -ml-8'>I'd love to hear from your. Let's collaborate</p>
       <form class="contact-form" id="contact-form" >
-        <div class="contact-form__group">
-          <input type="text" id="name" value={this.state.name} onChange={this.handleChange} required/>
-          <label for="name">NAME</label>
+        <div class="contact-form__group mt-1">
+          <input type="text" id="name"  required/>
+          <label for="name">Name</label>
         </div>
-        <div class="contact-form__group">
-          <input type="text" id="email" value={this.state.email} onChange={this.handleChange} name="email"
+        <div class="contact-form__group mt-1">
+          <input type="text" id="email"  name="email"
                  required/>
-          <label for="email">EMAIL</label>
+          <label for="email">E-mail</label>
         </div>
-        <div class="contact-form__group contact-form__group--textarea">
-						<textarea value={this.state.message} name="message" id="message" cols="30" rows="10" onChange={this.handleChange} required>
-							</textarea>
-          <label for="message">MESSAGE</label>
+        <div class="contact-form__group contact-form__group--textarea mt-10">
+          <textarea  name="message" id="message" rows="6"  required></textarea>
+          <label for="message">Message</label>
         </div>
-        <button class="button--pink" id="sendMsg">Send message</button>
+        <button class="button mt-8" id="sendMsg">Submit</button>
       </form>
     </div>
   </section>

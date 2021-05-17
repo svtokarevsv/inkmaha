@@ -24,16 +24,16 @@
       </li>
     </ul>
     <div id='smm' class='ml-auto mb-4 grid grid-cols-4 gap-8 mr-px'>
-      <a class="block text-hoverable border-b border-primary" target="_blank" href="https://www.instagram.com/ink_maha">
+      <a class="block text-hoverable snakable border-primary" target="_blank" href="https://www.instagram.com/ink_maha">
         <svg-icon name="instagram"/>
       </a>
-      <a class="block text-hoverable border-b border-primary" target="_blank" href="https://www.behance.net/Marun">
+      <a class="block text-hoverable snakable border-primary" target="_blank" href="https://www.behance.net/Marun">
         <svg-icon name="behance"/>
       </a>
-      <a class="block text-hoverable border-b border-primary" target="_blank" href="https://www.linkedin.com/in/maria-tokarieva">
+      <a class="block text-hoverable snakable border-primary" target="_blank" href="https://www.linkedin.com/in/maria-tokarieva">
         <svg-icon name="linkedin"/>
       </a>
-      <a class="block text-hoverable border-b border-primary" target="_blank" href="mailto:inkmaha@gmail.com">
+      <a class="block text-hoverable snakable border-primary" target="_blank" href="mailto:inkmaha@gmail.com">
         <svg-icon name="email"/>
       </a>
     </div>
