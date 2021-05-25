@@ -7,11 +7,12 @@
         Preview Showreel
       </button>
     </section>
-    <ProjectGroup v-for='(group, index) in projectGroups' :key='index' :name='group.name' :items='group.items'/>
+    <ProjectGroup v-for='(group, index) in projectGroups' :id='group.id' :key='index' :group='group'/>
     <ContactMe/>
   </main>
 </template>
 <script>
+import { mapState } from 'vuex'
 import ProjectGroup from '~/components/ProjectGroup'
 import ContactMe from '~/pages/ContactMe'
 
@@ -19,156 +20,9 @@ export default {
   components: { ContactMe, ProjectGroup },
   data:()=>({
     realPreviewImageUrl:'/img/sample_landscape_image.jpeg',
-    projectGroups:[
-      {
-        name: 'Animation',
-        items: [
-          {
-            url: '/img/sample_landscape_image.jpeg',
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-        ],
-      },
-      {
-        name: 'Branding',
-        items: [
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg',
-            width: 2,
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-        ],
-      },
-      {
-        name: 'UI / UX',
-        items: [
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg',
-            width: 3,
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg',
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-        ],
-      },
-      {
-        name: 'SMM / Instagram',
-        items: [
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg',
-            width: 2,
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-        ],
-      },
-      {
-        name: 'Illustrations',
-        items: [
-          {
-            url: '/img/sample_landscape_image.jpeg',
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-          {
-            url: '/img/sample_landscape_image.jpeg'
-          },
-        ],
-      }
-    ],
-  })
+  }),
+  computed:{
+    ...mapState('projects',['projectGroups'])
+  }
 }
 </script>

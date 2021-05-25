@@ -1,9 +1,12 @@
 <template>
-  <section class='mt-15 flex flex-col mb-24'>
+  <section class='mt-15 flex flex-col mb-24' id='Contact'>
     <h2 class='mb-6'>About me / Contact</h2>
-    <div class='flex'>
-      <div class='min-w-92 bg-contain bg-no-repeat' v-bind:style="{ 'background-image': `url(${this.meImage}` }"></div>
-      <div class='ml-8 flex-1 -m-1'>
+    <div class='flex flex-col md:flex-row'>
+      <img
+        class="h-fit max-w-92"
+        :src="this.meImage"
+      >
+      <div class='md:ml-8 flex-1 md:-m-1 mt-4 md:mt-0'>
         <p>There are Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, maxime, totam! Atque, commodi eum fuga fugiat ipsa iste magni nostrum quasi quia ut. Assumenda beatae consequatur consequuntur fugiat, incidunt ipsam libero necessitatibus sed velit. Aut dolore non omnis quasi rerum sed, veritatis! Atque consequatur  </p>
         <p class='ml-6.5 mb-2 mt-8 text-primary-800'>I like to work with:</p>
         <div class='ml-6.5 flex'>
