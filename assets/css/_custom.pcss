@@ -1,15 +1,75 @@
-:root{
+:root {
     --transition-time: 0.15s;
 }
+
 @layer components {
-    .mobile-nav{
+    .height-fit{
+        height: fit-content;
+    }
+    .popup__content{
+        background-color: var(--color-gray-50);
+        @apply w-full h-full mb-16;
+    }
+    .top-right{
+        right: 1.5rem;
+        top: 2.75rem;
+        &.snakable{
+            position: absolute;
+        }
+    }
+    .close-icon {
+        width: 36px;
+        height: 36px;
+
+        &:before, &:after {
+            position: absolute;
+            left: 17px;
+            top: 2px;
+            content: ' ';
+            height: 25px;
+            width: 1px;
+            background-color: var(--color-gray-50);
+            margin-top: 4px;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .overlay {
+        overflow:auto;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 40;
+
+        &.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .mobile-nav {
         @apply px-4 bg-gray-50 shadow;
         transform: translate(8.5rem, 0);
         transition: transform 0.3s linear;
-        &.open{
+
+        &.open {
             transform: translate(0, 0);
         }
     }
+
     .hamburger {
         width: 30px;
         height: 19px;
@@ -17,16 +77,18 @@
         transform: rotate(0deg);
         transition: .5s ease-in-out;
         cursor: pointer;
-        z-index:5;
+        z-index: 5;
         top: 1.3rem;
         right: 1.3rem;
+
         &:hover {
             color: var(--text);
         }
-        &.open{
+
+        &.open {
             height: 19px;
 
-           & span {
+            & span {
                 background: var(--text-secondary);
 
                 &:nth-child(1) {
@@ -51,6 +113,7 @@
                 }
             }
         }
+
         & span {
             display: block;
             position: absolute;
@@ -83,22 +146,25 @@
         }
     }
 
-    #navigation_projects{
-        & li:first-child{
+    #navigation_projects {
+        & li:first-child {
             margin-left: 0.25rem;
         }
     }
-    #__layout{
+
+    #__layout {
         display: flex;
         justify-content: center;
     }
-    .h-fit{
+
+    .h-fit {
         height: fit-content;
     }
+
     .max-w-inherit {
         max-width: inherit;
     }
-    
+
     .text-hoverable {
         @apply text-primary;
 
@@ -125,10 +191,6 @@
         border-bottom: 1px solid;
         border-bottom-color: inherit;
 
-        &:active::before, &:active::after {
-            display: none;
-        }
-
         &::before,
         &::after {
             /* Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts */
@@ -141,15 +203,13 @@
             content: '';
             position: absolute;
             opacity: 0;
-            margin-top: 1px;
         }
 
         &::before {
             top: 0;
             right: 0;
-            margin-bottom: -1px;
             border-right-color: inherit;
-            border-top-color: inherit; 
+            border-top-color: inherit;
             transition: /* Width expands first*/ opacity 0s var(--transition-time),
             height var(--transition-time) linear; /* And then height */
         }
@@ -164,15 +224,14 @@
         }
 
         &::after {
-            margin-bottom: -1px;
             bottom: 0;
             left: 0;
             border-left-color: inherit;
             border-top-color: inherit;
-            transition: /* Animate height first, then width*/ opacity 0s linear calc(var(--transition-time)*3),
+            transition: /* Animate height first, then width*/ opacity 0s linear calc(var(--transition-time) * 3),
             top 0s 0.1249999s,
             width var(--transition-time) linear var(--transition-time),
-            height var(--transition-time) linear calc(var(--transition-time)*2);
+            height var(--transition-time) linear calc(var(--transition-time) * 2);
         }
 
         &:hover::after {
@@ -180,8 +239,8 @@
             bottom: initial;
             opacity: 1;
             border-left-color: inherit;
-            transition: /* Animate height first, then width*/ opacity 0s linear calc(var(--transition-time)*2),
-            height var(--transition-time) linear calc(var(--transition-time)*2)
+            transition: /* Animate height first, then width*/ opacity 0s linear calc(var(--transition-time) * 2),
+            height var(--transition-time) linear calc(var(--transition-time) * 2)
         }
 
         &:hover {
@@ -193,11 +252,7 @@
             background-color: transparent;
         }
 
-        &:active {
-            border: 1px solid;
-            border-color: inherit;
-        }
-
+       
         &:hover::before,
         &:hover::after {
             width: 100%;
@@ -232,7 +287,18 @@
 
     .project-item {
         min-height: 17.5rem;
-        @apply bg-cover;
+        cursor: pointer;
+        @apply bg-cover flex items-end;
+        &:hover{
+            box-shadow: inset 0 -70px 30px -10px rgb(0 0 0 / 70%);
+            & .project_name{
+                visibility: visible;
+            }
+        }
+        & .project_name{
+            visibility: hidden;
+            @apply mb-5 ml-6;
+        }
     }
 
     .max-w-92 {
@@ -260,61 +326,71 @@
         margin-right: 1.75rem;
     }
 
-    .contact-form{
+    .contact-form {
         @apply max-w-full;
         text-align: center;
         width: 24rem;
         color: #b0aab2;
-        & .contact-form__group{
+
+        & .contact-form__group {
             position: relative;
-            & .contact-form__group--textarea{
+
+            & .contact-form__group--textarea {
                 margin-top: 3.5rem;
                 margin-bottom: 1.5rem;
             }
-            & input,& textarea{
+
+            & input, & textarea {
                 color: var(--text);
                 width: 100%;
                 background-color: transparent;
                 padding: 0.7rem 0.2rem 0.1rem;
                 transition: border-color 0.2s linear;
                 box-shadow: none;
-                &:focus{
+
+                &:focus {
                     border-color: var(--text);
                     outline: none;
                 }
             }
-            & label{
+
+            & label {
                 position: absolute;
-                //color: var(--text);
-                left: 0.2rem;
+            //color: var(--text); left: 0.2rem;
             }
-            & input:not(:valid)+label{
+
+            & input:not(:valid) + label {
                 position: absolute;
                 top: 0.7rem;
-                transition: all 0.2s linear ;
+                transition: all 0.2s linear;
             }
-            & input:focus+label,& input:valid+label{
-                top:-0.3rem;
-                font-size:0.7rem;
+
+            & input:focus + label, & input:valid + label {
+                top: -0.3rem;
+                font-size: 0.7rem;
             }
-            & input:focus+label,& textarea:focus+label{
+
+            & input:focus + label, & textarea:focus + label {
                 color: var(--text);
             }
 
-            & textarea:not(:valid)+label{
+            & textarea:not(:valid) + label {
                 position: absolute;
                 top: 0.2rem;
-                transition: all 0.2s linear ;
+                transition: all 0.2s linear;
             }
-            & textarea:focus+label,& textarea:valid+label{
-                top:-1.2rem;
-                font-size:0.7rem;
+
+            & textarea:focus + label, & textarea:valid + label {
+                top: -1.2rem;
+                font-size: 0.7rem;
             }
-            & input{
+
+            & input {
                 border: none;
-                border-bottom:1px solid var(--text-secondary);
+                border-bottom: 1px solid var(--text-secondary);
             }
-            & textarea{
+
+            & textarea {
                 padding-top: 0.2rem;
                 border-color: var(--text-secondary);
                 resize: none;
